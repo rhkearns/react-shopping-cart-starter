@@ -10,6 +10,17 @@ export default function App() {
   const [products, setProducts] = useState(productsArr);
   const [cart, setCart] = useState([]);
 
+  const addToCart = (index) => {
+    console.log('here');
+    setCart([
+      ...cart,
+      {
+        name: products[index].name,
+        price: products[index].price
+      }
+    ]);
+    console.log(cart);
+  }
   // create an addToCart function that takes in a product as a param
   // using the ...spread operator add the product to the cart array
 
@@ -21,7 +32,7 @@ export default function App() {
       <h1>Big Time Shopping</h1>
       <Form />
       <div className="products">
-        <AllTheThings />
+        <AllTheThings productsArr={productsArr} addToCart={addToCart}/>
         <MyShoppingCart />
       </div>
     </div>
