@@ -3,7 +3,7 @@ import React from 'react';
 function AllTheThings(props) {
   const things = props.productsArr.map((ele, index) => {
     return (
-      <li =onClick{() => props.addToCart(index)}>
+      <li onClick={() => props.addToCart(index)}>
       {ele.name} 
       - 
       ${ele.price}
