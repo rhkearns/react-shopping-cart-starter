@@ -11,7 +11,6 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (index) => {
-    console.log('here');
     setCart([
       ...cart,
       {
@@ -24,6 +23,17 @@ export default function App() {
   // create an addToCart function that takes in a product as a param
   // using the ...spread operator add the product to the cart array
 
+  const removeFromCart = (index) => {
+    console.log('here');
+    console.log(index);
+    const filteredArr = cart.filter((_, i) => i !== index)
+    console.log('filtered', filteredArr);
+    setCart([
+      ...filteredArr
+    ])
+    console.log('remove', cart); 
+  }
+
   // create an removeFromCart function that takes in an index as a param
   // using Array.filter remove create a new array where that item is removed
 
@@ -33,7 +43,7 @@ export default function App() {
       <Form />
       <div className="products">
         <AllTheThings productsArr={productsArr} addToCart={addToCart}/>
-        <MyShoppingCart cart={cart}/>
+        <MyShoppingCart cart={cart} removeFromCart={removeFromCart}/>
       </div>
     </div>
   );

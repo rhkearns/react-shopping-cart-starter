@@ -4,7 +4,7 @@ function MyShoppingCart(props) {
   console.log(props);
   const things = props.cart.map((ele, index) => {
     return (
-      <li onClick={() => props.addToCart(index)}>
+      <li onClick={() => props.removeFromCart(index)}>
       {ele.name} 
       - 
       ${ele.price}
